@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <tittle>VUE.JS</tittle>
+</head>
+<body>
+    <div id="app">
+        <p> {{ mensaje }} </p>
+        <inicio mensaje= "Este es mi mensaje personalizado" ></inicio>      
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <template id ="mi-plantilla">
+        <p>Mi nombre es {{nombre}}</p>
+        <p>{{ mensaje }}</p>
+    </template>
+    <script>
+
+        Vue.component('inicio', {
+            data: function () {
+                return { nombre:"Ale" }
+            },
+            props: ['mensaje'],
+            template: '#mi-plantilla'
+        })
+        new Vue({
+            el:'#app',
+            data: {
+                mensaje: 'Este mensaje lo creo Vue.JS'
+            }
+        })
+    </script>
+
+</body>
+</html>
